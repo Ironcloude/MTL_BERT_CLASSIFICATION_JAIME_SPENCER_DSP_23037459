@@ -1,0 +1,7 @@
+{
+    "python.analysis.extraPaths": [
+        "./src/data",
+        "./src/figures",
+        "./src/golden_set"
+    ]
+}

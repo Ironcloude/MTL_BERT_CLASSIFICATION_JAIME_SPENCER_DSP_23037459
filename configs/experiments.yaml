@@ -1,0 +1,140 @@
+# 'model' references a key in default.yaml for base hyperparameters.
+# Any field listed here overrides the base.
+
+EX-1:
+  model: BERT
+  description: "BERT STL baseline"
+  group: arch_comparison
+  multi_task: false
+  sequence_len: 512
+  batch_size: 16
+  grad_acc_steps: 4
+
+EX-2:
+  model: DeBERTav3
+  description: "DeBERTav3 STL - arch comparison"
+  group: arch_comparison
+  multi_task: false
+  sequence_len: 512
+  batch_size: 4
+  grad_acc_steps: 16
+  bf16: false
+
+EX-3:
+  model: ModernBERT
+  description: "ModernBERT STL 512 - arch comparison at matched sequence length"
+  group: arch_comparison
+  multi_task: false
+  sequence_len: 512
+  batch_size: 16
+  grad_acc_steps: 4
+
+EX-4:
+  model: ELECTRA
+  description: "ELECTRA STL - validate replaced token detection"
+  group: arch_comparison
+  multi_task: false
+  sequence_len: 512
+  batch_size: 16
+  grad_acc_steps: 4
+  bf16: false
+
+EX-5:
+  model: DeBERTa
+  description: "DeBERTa STL - validate disentangled attention"
+  group: arch_comparison
+  multi_task: false
+  sequence_len: 512
+  batch_size: 4
+  grad_acc_steps: 16
+
+
+EX-6:
+  model: ModernBERT
+  description: "ModernBERT STL 1024 - sequence length ablation"
+  group: seq_len
+  multi_task: false
+  sequence_len: 1024
+  batch_size: 4
+  grad_acc_steps: 16
+
+EX-7:
+  model: ModernBERT
+  description: "ModernBERT STL 2048 - sequence length ablation"
+  group: seq_len
+  multi_task: false
+  sequence_len: 2048
+  batch_size: 1
+  grad_acc_steps: 64
+
+EX-8:
+  model: ModernBERT
+  description: "ModernBERT STL 1024 frozen backbone"
+  group: ablation
+  multi_task: false
+  sequence_len: 1024
+  freeze: true
+  batch_size: 4
+  grad_acc_steps: 16
+
+EX-9:
+  model: ModernBERT
+  description: "ModernBERT MTL λ=1.0"
+  group: mtl
+  multi_task: true
+  sequence_len: 1024
+  lambda: 1.0
+  batch_size: 4
+  grad_acc_steps: 16
+
+EX-10:
+  model: ModernBERT
+  description: "ModernBERT MTL λ=0.75"
+  group: mtl
+  multi_task: true
+  sequence_len: 1024
+  lambda: 0.75
+  batch_size: 4
+  grad_acc_steps: 16
+
+EX-11:
+  model: ModernBERT
+  description: "ModernBERT MTL λ=0.5"
+  group: mtl
+  multi_task: true
+  sequence_len: 1024
+  lambda: 0.5
+  batch_size: 4
+  grad_acc_steps: 16
+
+EX-12:
+  model: ModernBERT
+  description: "ModernBERT MTL λ=0.25"
+  group: mtl
+  multi_task: true
+  sequence_len: 1024
+  lambda: 0.25
+  batch_size: 4
+  grad_acc_steps: 16
+
+EX-13:
+  model: ModernBERT
+  description: "ModernBERT MTL λ=0"
+  group: mtl
+  multi_task: true
+  sequence_len: 1024
+  lambda: 0
+  batch_size: 4
+  grad_acc_steps: 16
+
+EX-14:
+  model: ModernBERT
+  description: "ModernBERT STL 2048 MTL  λ=0.25"
+  group: mtl
+  multi_task: true
+  sequence_len: 2048
+  batch_size: 1
+  lambda: 0.25
+  grad_acc_steps: 64
+
+

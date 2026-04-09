@@ -1,0 +1,44 @@
+default: &default
+  sequence_len: 512
+  lr: 5.0e-5
+  adam_e: 1.0e-8
+  weight_decay: 0.01
+  bf16: True
+  lr_scheduler_type: "linear"
+  epochs: 10
+  early_stopping_patience: 3
+  freeze: false
+
+BERT: 
+  repo: "bert-base-uncased"   
+
+DeBERTa:
+  repo: "microsoft/deberta-base"
+  bf16: false 
+  #cannot handle bf16. Seemingly a bug with casting?
+  # native_bf16: True
+
+ELECTRA:
+  repo: "google/electra-base-discriminator"
+  lr: 3.0e-5
+  adam_e: 1.0e-6
+
+DeBERTav3:
+  <<: *default
+  repo: "microsoft/deberta-v3-base"
+  # native_bf16: True
+  lr: 2.5e-5
+  adam_e: 1.0e-6
+  # (3 epochs) Optuna sweep found: lr=2.69e-07, weight_decay=0.06, adam_e=1.0e-6, freeze_layers=9, lr_scheduler_type="cosine"
+  # lr: 2.69e-07
+  # weight_decay: 0.06
+  # freeze_layers: 9
+  # lr_scheduler_type: "cosine"
+      
+ModernBERT:
+  repo: "answerdotai/ModernBERT-base"
+  sequence_len: 1024
+
+             
+
+
