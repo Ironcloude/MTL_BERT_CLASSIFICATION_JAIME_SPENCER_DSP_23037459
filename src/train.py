@@ -1,3 +1,28 @@
+"""
+SID: 23037459
+PROJECT: Multi-task BERT-based Classification of Political Alignment in Online Media
+MODULE: UXCFXK-30-3 Digital Systems Project (2025-26) 
+
+CORE ARCHITECTURES, HF MODEL ID & ATTRIBUTION:
+- BERT:                 'bert-base-uncased' (Devlin et al., 2018)).
+- DeBERTa:              'microsoft/deberta-base'  (He et al. (2020)) 
+- ELECTRA:              'google/electra-base-discriminator (Clark et al. (2020)).
+- DeBERTav3:            'microsoft/deberta-v3-base'(He et al. (2021)).
+                            - Utilizes Replaced Token Detection (RTD) and Gradient Disentangled Attention.
+- ModernBERT:           'answerdotai/ModernBERT-base' (Warner et al. (2024))
+                            - Implements GeLU activations and mean-pooled hidden states for classification.
+- RoBERTa (TweetEval):  'cardiffnlp/twitter-roberta-base-sentiment-latest' (Barbieri et al. (2022)).
+                            - Sentiment Backbone. Used for auxiliary silver-label generation.
+
+ORIGINAL CONTRIBUTIONS:
+- Custom MultiTaskModel:    Shared encoder backbone with independent task-specific MLP heads.
+
+- Loss Function:            Joint optimization using Weighted Cross-Entropy (Primary: Political) 
+                            and standard Cross-Entropy (Auxiliary: Sentiment) controlled by lambda (λ).
+
+- Sampling:                 Source-stratified partitioning logic to prevent outlet-style leakage.
+"""
+
 import math
 import sys
 from datasets import load_from_disk
@@ -23,6 +48,8 @@ import gc
 import yaml
 import json
 import re
+
+
 
 # Define custom model to extend to multi-task
 #  Returns two sets of logits for each head. The issue is that 
