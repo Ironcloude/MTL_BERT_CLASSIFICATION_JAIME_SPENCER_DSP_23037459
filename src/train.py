@@ -22,7 +22,6 @@ ORIGINAL CONTRIBUTIONS:
 
 - Sampling:                 Source-stratified partitioning logic to prevent outlet-style leakage.
 """
-
 import math
 import sys
 from datasets import load_from_disk
@@ -50,10 +49,7 @@ import json
 import re
 
 
-
-# Define custom model to extend to multi-task
-#  Returns two sets of logits for each head. The issue is that 
-
+# Define custom MTL class in line with expected HF format.
 @dataclass
 class MTOutput:
     """Wrapper so the HuggingFace Trainer can unwrap logits from a tuple-returning model.
@@ -67,6 +63,7 @@ class MTOutput:
 
     def __getitem__(self, idx):
         return self.logits
+
 
 class MultiTaskModel(nn.Module):
     """
@@ -92,7 +89,7 @@ class MultiTaskModel(nn.Module):
 
         #Explicility define separate heads for political and sentiment tasks, 
         # each with its own Dense => GELU => LayerNorm => Dropout => Linear structure,
-        #  matching ModernBERT's classification head. 
+        # matching ModernBERT's classification head. 
         # Political head (matches ModernBertPredictionHead)
         self.pol_dense = nn.Linear(hidden, hidden, bias=False)
         self.pol_act = nn.GELU()
@@ -132,7 +129,9 @@ class MultiTaskModel(nn.Module):
         return MTOutput(logits=(pol_logits, sent_logits))
 
 
-# Define source aliases for source normalisation 
+# Normalise source sub domains into parent aliases for source stratification in train split
+# Aims to prevent style leakage during in OOD evaluation
+# Claude
 SOURCE_ALIASES = {
     "AP Fact Check": "Associated Press",
     "CNN (Web News)": "CNN", "CNN (Opinion)": "CNN",
@@ -162,6 +161,9 @@ SOURCE_ALIASES = {
 }
 
 def _normalise_source(s):
+    """
+    Helper for source categorisation.
+    """
     if s in SOURCE_ALIASES:
         return SOURCE_ALIASES[s]
     s = re.sub(r'\s*\(.*?\)', '', s)
@@ -172,22 +174,22 @@ def _normalise_source(s):
     return s.strip()
 
 # CONFIG
-DEBUG = False # True to test with a small subset of the data and fewer training steps
 MAX_CORES = 8
 WANDB_PROJECT = "political-bias-detection-stratified-final"
 STRATIFY_BY_SOURCE = True
 FRESH_TOKENISATION = True
-MTL_EVAL_NO_LOSS = False
-# Set total log steps for metrics (lower => faster training but coarser metrics. HOWEVER, with early stopping enabled more evals == more chances to stop early)
+MTL_EVAL_F1 = False
+RESUME_FROM_CHECKPOINT = ""
+# Set total log steps for metrics 
+# (lower => faster training but coarser metrics. HOWEVER, with early stopping enabled more evals == more chances to stop early)
 LOG_NUM = 30
 
-
 # Load training configurations
+# 'default' contains conventional parameter configurations for each model
+# 'eperiments' contains the cofigurations for each invidual EX (1 - 14). Overrides default.yaml. 
 _config_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)), "..", "configs")
-
 with open(os.path.join(_config_dir, "default.yaml")) as f:
     _defaults = yaml.safe_load(f)
-
 with open(os.path.join(_config_dir, "experiments.yaml")) as f:
     _experiments = yaml.safe_load(f)
 
@@ -199,19 +201,19 @@ def _resolve(exp_cfg: dict) -> dict:
     base.update(exp_cfg)                         # apply experiment-specific overrides
     return base
 
+# Define experiments (EX) to execute. All by default.
 TO_TRAIN = {name: _resolve(cfg) for name, cfg in _experiments.items()}
 _order = [ "EX-12"]
 TO_TRAIN = {key: TO_TRAIN[key] for key in _order if key in TO_TRAIN}
+
 if __name__ == "__main__":
     for experiment, _ in TO_TRAIN.items():
         print(f"\n{'='*20}\nStarting experiment: {experiment}\n{'='*20}\n{TO_TRAIN[experiment]['description']}\n")
         print(TO_TRAIN[experiment])
         try:
-
             # Resume from checkpoint specified
-            RESUME_FROM_CHECKPOINT = ""
             if RESUME_FROM_CHECKPOINT:
-                os.environ["WANDB_RUN_ID"] = "" #  ls /home/jaime/DSP/Project/results/wandb/ | sort | tail -10
+                os.environ["WANDB_RUN_ID"] = "" #  ls /Project/results/wandb/ | sort | tail -10
                 os.environ["WANDB_RESUME"] = "must"
             else:
                 os.environ.pop("WANDB_RUN_ID", None)
@@ -255,7 +257,7 @@ if __name__ == "__main__":
             if not RESUME_FROM_CHECKPOINT:
                 run_id = datetime.now().strftime('%Y%m%d-%H%M%S')
                 task_type = f"mt-λ{LAMBDA}" if multi_task else "st"
-                log_name_short = f"{'EVALF1-' if MTL_EVAL_NO_LOSS else ''}{experiment}-{model_name}-{task_type}-lr-{learning_rate}-{int(DATASET_PERCENTAGE*100)}pct-{seq_len}"
+                log_name_short = f"{'EVALF1-' if MTL_EVAL_F1 else ''}{experiment}-{model_name}-{task_type}-lr-{learning_rate}-{int(DATASET_PERCENTAGE*100)}pct-{seq_len}"
                 log_name = f"{log_name_short}-{run_id}"
 
             if RESUME_FROM_CHECKPOINT:
@@ -527,7 +529,7 @@ if __name__ == "__main__":
                 load_best_model_at_end=True,
                 # Eval loss for multi-task to avoid overfitting to political head at expense of sentiment head. 
                 # Political F1 for single-task as normal.
-                metric_for_best_model="eval_loss" if multi_task and not MTL_EVAL_NO_LOSS else "eval_political_f1",
+                metric_for_best_model="eval_loss" if multi_task and not MTL_EVAL_F1 else "eval_political_f1",
                 greater_is_better=False if multi_task else True,
                 report_to="wandb",
                 run_name=log_name,

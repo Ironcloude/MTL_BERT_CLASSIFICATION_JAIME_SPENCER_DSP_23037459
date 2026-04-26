@@ -1,0 +1,154 @@
+
+Candidate outlets (AllSides-rated, not in training, by popularity):
+                                name          bias  total_votes                         domain
+0                     The Federalist         right        11785              thefederalist.com
+1                  Los Angeles Times   left-center         8533                            NaN
+2                             C-SPAN        center         5467                     c-span.org
+3                      Drudge Report        center         4449               drudgereport.com
+4           U.S. News & World Report   left-center         3804                            NaN
+5                     Judicial Watch    lean right         2768              judicialwatch.org
+6                The Western Journal         right         2322          westernjournalism.com
+7                The Weekly Standard         right         2215             weeklystandard.com
+8                             HotAir  right-center         2099                            NaN
+9                           Mediaite   left-center         1852                            NaN
+10           Harvard Business School     lean left         1832                  hbswk.hbs.edu
+11                 Chicago Sun-Times     lean left         1817           chicago.suntimes.com
+12         Austin American-Statesman     lean left         1693                mystatesman.com
+13                 Fact Checker Blog        center         1687                            NaN
+14             Aquinas College Saint          left         1668                 thesaintaq.com
+15                       Google News     lean left         1651                news.google.com
+16                       Boing Boing          left         1634                 boingboing.net
+17                The Gateway Pundit         right         1595           thegatewaypundit.com
+18                      PoliticusUSA          left         1554               politicususa.com
+19                   Financial Times        center         1516                         ft.com
+20          Bowling Green Daily News     lean left         1358                bgdailynews.com
+21                       Centre View     lean left         1358                centre-view.com
+22                             Care2          left         1356                      care2.com
+23      Center - Major Media Sources        center         1347                            NaN
+24                     Bearing Drift         right         1344               bearingdrift.com
+25                Barnstable Patriot        center         1307          barnstablepatriot.com
+26                         Univision          left         1138                  univision.com
+27        Left - Major Media Sources          left         1115                            NaN
+28                FrontPage Magazine         right         1099               frontpagemag.com
+29                    Daily Progress        center          972              dailyprogress.com
+30                          CrowdPAC        center          961                   crowdpac.com
+31                       Daily Press    lean right          959                 dailypress.com
+32         Falls Church News - Press          left          958                       fcnp.com
+33                     Science Daily        center          957               sciencedaily.com
+34               Honolulu Civil Beat        center          943                  civilbeat.org
+35                      Miami Herald     lean left          912                miamiherald.com
+36                          TruthOut          left          903                  truth-out.org
+37                   Project Veritas         right          885             projectveritas.com
+38                          Upworthy          left          869                   upworthy.com
+39           Hampton Roads Messanger        center          855      hamptonroadsmessenger.com
+40                   Counterpointing      allsides          832                            NaN
+41                       Eurek Alert        center          821                 eurekalert.org
+42               Babylon Bee (Humor)    lean right          815                 babylonbee.com
+43                               AJ+          left          811                     ajplus.net
+44        Columbia Journalism Review        center          796                        cjr.org
+45                The Sacramento Bee     lean left          794                     sacbee.com
+46                              WGBH        center          780                  news.wgbh.org
+47                    The Republican        center          774          therepublicannews.com
+48           Pittsburgh Post-Gazette        center          770               post-gazette.com
+49                            Inacow         right          750                     inacow.com
+50                         Indy Week     lean left          729                   indyweek.com
+51                Diplomatic Courier        center          724           diplomaticourier.com
+52                     Yes! Magazine          left          709                yesmagazine.org
+53                         SF Weekly        center          707                   sfweekly.com
+54          Estes Park Trail Gazette        center          698                    eptrail.com
+55                   Right Wing News         right          686              rightwingnews.com
+56             Journalist's Resource        center          680        journalistsresource.org
+57       Right - Major Media Sources         right          673                            NaN
+58                      Abridge News         mixed          649                abridgenews.com
+59                 The Onion (Humor)     lean left          601                   theonion.com
+60                Washington Monthly     lean left          592          washingtonmonthly.com
+61               Commentary Magazine         right          583                 commentary.org
+62                     Jubilee Media     lean left          578               jubileemedia.com
+63                    Michigan Daily     lean left          578              michigandaily.com
+64                The National Pulse         right          574           thenationalpulse.com
+65                  Spokesman Review     lean left          572                  spokesman.com
+66           Richmond Times Dispatch    lean right          571                   richmond.com
+67                        Smerconish        center          567                 smerconish.com
+68                          MIT News        center          561                   news.mit.edu
+69                    Leesburg Today    lean right          538              leesburgtoday.com
+70                     State Journal     lean left          525              state-journal.com
+71        Louisville Courier-Journal   left-center          523                            NaN
+72                    Yahoo! The 360        center          498                 news.yahoo.com
+73         The Philadelphia Inquirer     lean left          490                     philly.com
+74   The Delaware County Daily Times     lean left          488                 delcotimes.com
+75                 Wisconsin Gazette     lean left          485           wisconsingazette.com
+76            The Advocate-Messenger     lean left          482                     amnews.com
+77                   The College Fix         right          462              thecollegefix.com
+78                         VT Digger        center          455                   vtdigger.org
+79                          PXW News        center          454                            NaN
+80                           Poynter        center          452                    poynter.org
+81        Progressive Voices of Iowa          left          441    progressivevoicesofiowa.com
+82                   MTV News Online     lean left          424                        mtv.com
+83                   Whatfinger News         right          400                 whatfinger.com
+84                  The Cadiz Record     lean left          399                cadizrecord.com
+85         The Saturday Evening Post        center          399        saturdayeveningpost.com
+86            Suspend Belief Podcast      allsides          388                            NaN
+87                 Sky-Hi Daily News     lean left          370             skyhidailynews.com
+88                    Record Journal        center          358            myrecordjournal.com
+89          The Canyon County Zephyr          left          355        canyoncountryzephyr.com
+90                 The Red and Black        center          346                redandblack.com
+91                          Phys.org        center          344                       phys.org
+92                  Voice of America        center          344                            NaN
+93                 The Reliable Bias        center          342               reliablebias.com
+94              Listen First Project         mixed          329         listenfirstproject.org
+95               National Geographic        center          328         nationalgeographic.com
+96                       The Fulcrum        center          312                  thefulcrum.us
+97                     Braver Angels         mixed          300               braverangels.org
+98                   Idaho Statesman        center          283             idahostatesman.com
+99                       McClatchyDC        center          281                mcclatchydc.com
+100                    The Daily Dot     lean left          274                   dailydot.com
+101              The Lincoln Project        center          273              lincolnproject.us
+102                    Spectator USA         right          266             spectatorworld.com
+103                       The Oracle        center          260                  usforacle.com
+104                     Mismatch.org      allsides          259                            NaN
+105                 Psychology Today        center          250                            NaN
+106               Atlanta Black Star     lean left          241           atlantablackstar.com
+107            Biblical Gender Roles         right          232        biblicalgenderroles.com
+108                             KATU        center          227                       katu.com
+109                       StoryCorps         mixed          224                 storycorps.org
+110                      The Bulwark          left          215                 thebulwark.com
+111                   New Discourses        center          211              newdiscourses.com
+112                         Subverse        center          210                      minds.com
+113                       The Appeal        center          203                  theappeal.org
+114              Wake Up to Politics        center          190           wakeuptopolitics.com
+115                Biblical Sexology         right          183           biblicalsexology.com
+116                    Bizpac Review         right          173               bizpacreview.com
+117                 Chicago Defender          left          172            chicagodefender.com
+118                    Common Dreams          left          167               commondreams.org
+119                     Live Science        center          163                livescience.com
+120               The Texas Observer     lean left          156              texasobserver.org
+121                         Truthdig          left          155                            NaN
+122                           WANDTV        center          151                     wandtv.com
+123       New Hampshire Union Leader        center          149                unionleader.com
+124                    Daily Citizen     not rated          147            thedailycitizen.com
+125                       Refinery29          left          129                 refinery29.com
+126                Red Racing Horses         right          127               rrhelections.com
+127               The Police Tribune    lean right          116           bluelivesmatter.blue
+128                    Evie Magazine    lean right          113               eviemagazine.com
+129                 Chicago Crusader          left          103            chicagocrusader.com
+130                 Virginia Mercury        center           99            virginiamercury.com
+131                    Elle Magazine     lean left           96                       elle.com
+132                       High Times     lean left           96                  hightimes.com
+133                        Patch.com        center           95                      patch.com
+134                      JSTOR Daily        center           89                daily.jstor.org
+135                     Daily Breeze        center           87                dailybreeze.com
+136              Columbia Missourian        center           86         columbiamissourian.com
+137                      Law & Crime        center           85                lawandcrime.com
+138                     The Plebeian   left-center           81                            NaN
+139                     Desiring God    lean right           76                desiringgod.org
+140            Misinformation Review        center           75  misinforeview.hks.harvard.edu
+141                       Hip Latina          left           64                  hiplatina.com
+142                Students For Life    lean right           58            studentsforlife.org
+143                    Byron Donalds    lean right           55               byrondonalds.com
+144     Inland Valley Daily Bulletin        center           53              dailybulletin.com
+145        Long Beach Press-Telegram        center           53              presstelegram.com
+146               The Times-Picayune        center           53                       nola.com
+147                     Kenosha News        center           52                kenoshanews.com
+148                       The Markup        center           46                  themarkup.org
+149           Jefferson Public Radio        center           43                       ijpr.org
+150                           Leafly          left           43                     leafly.com

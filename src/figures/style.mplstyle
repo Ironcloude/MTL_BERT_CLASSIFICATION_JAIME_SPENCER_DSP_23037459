@@ -1,0 +1,29 @@
+# style.mplstyle
+
+
+
+# Typography
+font.family : serif
+font.serif : DejaVu Serif, Times New Roman, Times, Computer Modern Roman, serif
+font.size : 10
+
+# Figure Sizing (6.5 inches wide for Word)
+figure.figsize : 6.5, 7.5
+figure.dpi : 300
+savefig.dpi : 300
+savefig.bbox : tight
+
+# Axes & Grid (Replaces sns.despine() and sns.set_theme())
+axes.spines.top : False
+axes.spines.right : False
+axes.grid : False
+axes.labelsize : 10
+axes.labelweight : bold
+axes.titlesize : 11
+axes.titleweight : bold
+
+# Ticks
+xtick.labelsize : 10
+ytick.labelsize : 10
+xtick.direction : out
+ytick.direction : out

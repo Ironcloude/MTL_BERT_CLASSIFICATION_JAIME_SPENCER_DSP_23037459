@@ -1,0 +1,134 @@
+ModernBERT-base Architecture (149M params)
+============================================
+
+Input: Token IDs (seq_len,)
+  |
+  v
++---------------------------------------------------------------+
+| EMBEDDINGS (ModernBertEmbeddings)                             |
+|                                                               |
+|   tok_embeddings    50,368 vocab -> 768-dim                   |
+|         |                                                     |
+|     LayerNorm       normalise scale                           |
+|         |                                                     |
+|      Dropout        regularisation                            |
+|                                                               |
+|   (No position embeddings — RoPE injected in attention)       |
++---------------------------------------------------------------+
+  |
+  |  Output: (batch, seq_len, 768)
+  v
++---------------------------------------------------------------+
+| ENCODER  x22 layers (ModernBertEncoderLayer)                  |
+|                                                               |
+|   Each layer:                                                 |
+|                                                               |
+|   +----- ATTENTION BLOCK ----------------------------------+  |
+|   |                                                        |  |
+|   |  x ----+                                               |  |
+|   |        |                                               |  |
+|   |     Wqkv (768 -> 2304)   fused Q+K+V projection       |  |
+|   |        |                                               |  |
+|   |     Split into Q, K, V   (each 768-dim)               |  |
+|   |        |                                               |  |
+|   |     RoPE applied to Q, K  (rotary position encoding)   |  |
+|   |        |                                               |  |
+|   |     12-head attention     (768/12 = 64-dim per head)   |  |
+|   |        |                                               |  |
+|   |     Wo (768 -> 768)       output projection            |  |
+|   |        |                                               |  |
+|   |  x <---+ residual add                                  |  |
+|   +--------------------------------------------------------+  |
+|   |                                                           |
+|   +----- MLP BLOCK ----------------------------------------+  |
+|   |                                                        |  |
+|   |  x ----+                                               |  |
+|   |        |                                               |  |
+|   |     LayerNorm             pre-norm architecture        |  |
+|   |        |                                               |  |
+|   |     Wi (768 -> 2304)      expand                       |  |
+|   |        |                                               |  |
+|   |     GELU                  nonlinearity                 |  |
+|   |        |                                               |  |
+|   |     Dropout               regularisation               |  |
+|   |        |                                               |  |
+|   |     Wo (2304 -> 768)      compress back                |  |
+|   |        |                                               |  |
+|   |  x <---+ residual add                                  |  |
+|   +--------------------------------------------------------+  |
+|                                                               |
++---------------------------------------------------------------+
+  |
+  |  Output: (batch, seq_len, 768)
+  v
++---------------------------------------------------------------+
+| FINAL LAYERNORM                                               |
+|                                                               |
+|   Normalise hidden states before output                       |
++---------------------------------------------------------------+
+  |
+  |  Take CLS token: (batch, 768)
+  |  last_hidden_state[:, 0]
+  v
+
+====================== ENCODER ENDS HERE ======================
+
+  Everything above is PRETRAINED (masked language modelling).
+  Everything below is TRAINED FROM SCRATCH during fine-tuning.
+
+============================== HEAD ============================
+
++---------------------------------------------------------------+
+| ST HEAD (AutoModelForSequenceClassification)                  |
+|                                                               |
+|   CLS (768)                                                   |
+|     |                                                         |
+|   Dense (768 -> 768, no bias)    task-specific projection     |
+|     |                                                         |
+|   GELU                           nonlinearity                 |
+|     |                                                         |
+|   LayerNorm                      stabilise                    |
+|     |                                                         |
+|   Dropout (0.1)                  regularisation               |
+|     |                                                         |
+|   classifier (768 -> 3)          L/C/R decision boundary      |
+|                                                               |
++---------------------------------------------------------------+
+
+
++---------------------------------------------------------------+
+| MTL HEAD (MultiTaskModel — your custom class)                 |
+|                                                               |
+|   CLS (768)                                                   |
+|     |                                                         |
+|     +------ Political Branch ------+-- Sentiment Branch ---+  |
+|     |                              |                       |  |
+|   Dense (768->768, no bias)      Dense (768->768, no bias) |  |
+|     |                              |                       |  |
+|   GELU                           GELU                      |  |
+|     |                              |                       |  |
+|   LayerNorm                      LayerNorm                 |  |
+|     |                              |                       |  |
+|   Dropout                        Dropout                   |  |
+|     |                              |                       |  |
+|   Linear (768->3)                Linear (768->5)           |  |
+|     |                              |                       |  |
+|   L / C / R                      5 sentiment classes       |  |
+|                                                            |  |
+|   loss = lambda * L_pol  +  (1 - lambda) * L_sent         |  |
+|                                                               |
++---------------------------------------------------------------+
+
+
+Parameter counts
+================
+Embeddings:          ~38.7M
+Encoder (22 layers): ~109.5M
+Final LayerNorm:     ~0.001M
+---
+Encoder total:       ~149M   (pretrained, fine-tuned)
+
+ST head:             ~0.6M   (trained from scratch)
+MTL heads:           ~1.2M   (trained from scratch)
+
+~99.6% of parameters are pretrained.

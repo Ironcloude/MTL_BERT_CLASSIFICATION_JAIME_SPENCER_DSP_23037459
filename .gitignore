@@ -1,10 +1,40 @@
+# Project
 flashattn
-models
-results
-src/*
-!src/train.py
-data/*
-!data/golden_set/
+backups
+.vscode
+
+# Data
+/data/golden_set/training_sources.txt
+/data/tokenized
+/data/raw
+data/processed
+# Models
+/models
+
+# Results
+results/**
+!results/figures/
+!results/figures/ig_demo/
+!results/figures/ig_demo/**
+!results/metrics/
+!results/metrics/golden_per_article_eval.csv
+!results/metrics/id-eval-golden_set_results_1775416357.csv
+!results/metrics/best_golden_checkpoint_scan_1775603202.csv
+!results/metrics/seed_search_results.csv
+!results/metrics/source_split_verification.txt
+
+# Source
+src/wandb
+src/reference
+src/xai/xai_lime_shap.py
+src/xai/simple_LIME.py
+src/xai/xai_attribution.py
+src/xai/xai.ipynb
+src/golden_set/remove.py
+src/golden_set/add.py
+src/golden_set/golden_set_processing.py
+src/figures/checkpoint_analysis.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
@@ -239,8 +269,3 @@ ipython_config.py
 # Remove previous ipynb_checkpoints
 #   git rm -r .ipynb_checkpoints/
 
-
-backups
-/data
-/models
-src/wandb

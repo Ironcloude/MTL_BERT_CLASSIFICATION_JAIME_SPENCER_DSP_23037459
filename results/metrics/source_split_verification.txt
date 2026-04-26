@@ -1,0 +1,702 @@
+SOURCE-STRATIFIED SPLIT VERIFICATION
+================================================================================
+
+NORMALISATION MAPPING (only changed names)
+--------------------------------------------------------------------------------
+  538 (ABC News)                                     → 538
+  ABC News (Online)                                  → ABC News
+  Allysia Finley (Wall Street Journal)               → Allysia Finley
+  The American Spectator                             → American Spectator
+  AP Fact Check                                      → Associated Press
+  Barstool Sports - Blog                             → Barstool Sports
+  Boston Herald Editorial                            → Boston Herald
+  Breitbart News                                     → Breitbart
+  Breitbart Fact Check                               → Breitbart
+  Buzzfeed                                           → BuzzFeed News
+  CBS SFBayArea                                      → CBS News
+  CNN (Opinion)                                      → CNN
+  CNN Fact Check                                     → CNN
+  CNN - Editorial                                    → CNN
+  CNN (Web News)                                     → CNN
+  CNSNews.com                                        → CNS News
+  Cato Institute (blog)                              → Cato Institute
+  DesMoines Register                                 → Des Moines Register
+  Fox News Digital                                   → Fox News
+  Fox News (Opinion)                                 → Fox News
+  Fox News Latino                                    → Fox News
+  Fox Online News                                    → Fox News
+  Fox News Opinion                                   → Fox News
+  Fox News (Online)                                  → Fox News
+  Free Beacon Fact Check                             → Free Beacon
+  Guest Writer - Center                              → Guest Writer
+  Guest Writer - Right                               → Guest Writer
+  Guest Writer - Left                                → Guest Writer
+  Indy Online                                        → Indy
+  MichelleMalkin.com                                 → Michelle Malkin
+  NBC 5 Chicago                                      → NBC News
+  NBCNews.com                                        → NBC News
+  NBC News (Online)                                  → NBC News
+  NBC (Web News)                                     → NBC News
+  NBC Today Show                                     → NBC News
+  NPR News                                           → NPR
+  NPR Online News                                    → NPR
+  NPR Editorial                                      → NPR
+  New York Times - News                              → New York Times
+  New York Times (Online News)                       → New York Times
+  New York Times - Opinion                           → New York Times
+  New York Times Editorial Board                     → New York Times
+  Newsmax (News)                                     → Newsmax
+  Newsmax (Opinion)                                  → Newsmax
+  Newsmax - Opinion                                  → Newsmax
+  Newsmax - News                                     → Newsmax
+  Odyssey Online                                     → Odyssey
+  One America News Network (OAN)                     → One America News Network
+  PRI (Public Radio International)                   → PRI
+  RealClearPolitics (Aggregator)                     → RealClearPolitics
+  Reason Foundation                                  → Reason
+  RedState                                           → Red State
+  Scriberr Media - Opinion/Editorial                 → Scriberr Media
+  Scriberr Media - News                              → Scriberr Media
+  Ted Rall (cartoonist)                              → Ted Rall
+  The Dispatch Fact Check                            → The Dispatch
+  The Observer (New York)                            → The Observer
+  The Week - News                                    → The Week
+  The Week - Opinion                                 → The Week
+  Voice of America (VOA)                             → Voice of America
+  Wall Street Journal - News                         → Wall Street Journal
+  Wall Street Journal - Editorial                    → Wall Street Journal
+  Walt Handelsman (cartoonist)                       → Walt Handelsman
+  The Western Journal                                → Western Journal
+
+
+SPLIT SUMMARY
+--------------------------------------------------------------------------------
+Train: 37754 articles (82.0%) from 441 normalised sources
+Eval:  8301 articles (18.0%) from 111 normalised sources
+
+Normalised source overlap: 0 (MUST be 0)
+Raw source name overlap:   0
+Variant leaks: 0
+
+Train class balance:
+  Left: 12506 (33.1%)
+  Centre: 9930 (26.3%)
+  Right: 15318 (40.6%)
+
+Eval class balance:
+  Left: 2728 (32.9%)
+  Centre: 2207 (26.6%)
+  Right: 3366 (40.5%)
+
+
+================================================================================
+TRAIN SOURCES (479 raw sources)
+================================================================================
+Source                                               Left  Centre  Right  Total
+-------------------------------------------------- ------ ------- ------ ------
+CNN (Web News)                                    (train)   2894     745      0   3639
+Washington Times                                  (train)      0       0   3408   3408
+Politico                                          (train)   2886       0      0   2886
+Fox News                                          (train)      0       0   2344   2344
+Fox Online News                                   (train)      0       0   2047   2047
+NPR Online News                                   (train)      0    2005      0   2005
+USA TODAY                                         (train)      0    1780      0   1780
+Fox News Digital                                  (train)      0       0   1691   1691
+Vox                                               (train)   1528       0      0   1528
+The Hill                                          (train)      0    1517      0   1517
+New York Times - News                             (train)   1412       0      0   1412
+National Review                                   (train)      0       0   1028   1028
+Reuters                                           (train)      0     997      0    997
+Newsmax                                           (train)      0       0    749    749
+CBN                                               (train)      0       0    682    682
+New York Times                                    (train)    677       0      0    677
+Reason                                            (train)      0      68    574    642
+The Daily Caller                                  (train)      0       0    450    450
+TheBlaze.com                                      (train)      0       0    404    404
+Daily Beast                                       (train)    392       0      0    392
+Washington Post                                   (train)    358       0      0    358
+Wall Street Journal - News                        (train)      0     334      0    334
+American Spectator                                (train)      0       0    322    322
+NPR News                                          (train)      0     292      0    292
+The Daily Wire                                    (train)      0       0    259    259
+The Flip Side                                     (train)      0     241      0    241
+Slate                                             (train)    206       0      0    206
+CBS News                                          (train)    199       0      0    199
+Forbes                                            (train)      0     198      0    198
+Bloomberg                                         (train)      0     178      0    178
+Vanity Fair                                       (train)    167       0      0    167
+Al Jazeera                                        (train)    143       1      0    144
+Mother Jones                                      (train)    141       0      0    141
+The Week - News                                   (train)      0     119      0    119
+Media Matters                                     (train)    112       0      0    112
+CNBC                                              (train)      0     108      0    108
+MarketWatch                                       (train)      0       0    106    106
+BuzzFeed News                                     (train)     96       0      0     96
+Vice                                              (train)     94       0      0     94
+FiveThirtyEight                                   (train)      0      91      0     91
+CNN - Editorial                                   (train)     88       0      0     88
+Fox News (Online)                                 (train)      0       0     86     86
+Business Insider                                  (train)      0      85      0     85
+Yahoo! The 360                                    (train)      0      80      0     80
+Newsmax - News                                    (train)      0       0     78     78
+Democracy Now                                     (train)     78       0      0     78
+Washington Free Beacon                            (train)      0       0     78     78
+Axios                                             (train)      0      75      0     75
+New York Magazine                                 (train)     71       0      0     71
+New York Times - Opinion                          (train)     68       0      0     68
+Pew Research Center                               (train)      0      66      0     66
+Victor Hanson                                     (train)      0       0     63     63
+NBCNews.com                                       (train)     61       0      0     61
+ProPublica                                        (train)     30      30      0     60
+Washington Examiner                               (train)      0       0     60     60
+Fox News Opinion                                  (train)      0       0     58     58
+Newsmax (News)                                    (train)      0       0     57     57
+The Intercept                                     (train)     55       0      0     55
+CNN (Opinion)                                     (train)     54       0      0     54
+ThinkProgress                                     (train)     50       0      0     50
+Fox News (Opinion)                                (train)      0       0     49     49
+International Business Times                      (train)      0      49      0     49
+Media Research Center                             (train)      0       0     46     46
+Rich Lowry                                        (train)      0       0     45     45
+John Stossel                                      (train)      0       0     45     45
+Los Angeles Times                                 (train)     45       0      0     45
+Yahoo! News                                       (train)     43       0      0     43
+Scientific American                               (train)      2      38      0     40
+Roll Call                                         (train)      0      39      0     39
+New Republic                                      (train)     39       0      0     39
+Independent Journal Review                        (train)      0       0     38     38
+NBC News (Online)                                 (train)     38       0      0     38
+Newsmax - Opinion                                 (train)      0       0     36     36
+The Dispatch                                      (train)      0       0     34     34
+The Daily Signal                                  (train)      0       0     31     31
+Fortune                                           (train)      0      31      0     31
+The Epoch Times                                   (train)      0       0     30     30
+RollingStone.com                                  (train)     29       0      0     29
+The Economist                                     (train)     28       0      0     28
+Jacobin                                           (train)     28       0      0     28
+The New Yorker                                    (train)     27       0      0     27
+Ben Shapiro                                       (train)      0       0     27     27
+UnHerd                                            (train)      0      26      0     26
+The Marshall Project                              (train)      0      25      0     25
+Deseret News                                      (train)      0      14     11     25
+538 (ABC News)                                    (train)      0      24      0     24
+The Week - Opinion                                (train)     24       0      0     24
+Straight Arrow News                               (train)      0      23      0     23
+New York Times (Online News)                      (train)     22       0      0     22
+SCOTUSblog                                        (train)      0      22      0     22
+Euronews                                          (train)      0      22      0     22
+Quillette                                         (train)      0       0     22     22
+Foreign Policy                                    (train)      0      20      0     20
+Chicago Tribune                                   (train)      0      20      0     20
+Deutsche Welle                                    (train)      0      19      0     19
+The Verge                                         (train)     18       0      0     18
+TechCrunch                                        (train)      0      18      0     18
+The Dallas Morning News                           (train)      0      18      0     18
+Howard Kurtz                                      (train)      0      17      0     17
+George Will                                       (train)      0       0     17     17
+South China Morning Post                          (train)      0      17      0     17
+Wired                                             (train)      0      16      0     16
+Lifehacker                                        (train)      0      16      0     16
+John Fund                                         (train)      0       0     16     16
+Voice of America (VOA)                            (train)      0      16      0     16
+Newt Gingrich                                     (train)      0       0     15     15
+PBS NewsHour                                      (train)      0      15      0     15
+Mediaite                                          (train)     14       0      0     14
+Damon Linker                                      (train)     14       0      0     14
+Grist                                             (train)     13       0      0     13
+Matt Lewis                                        (train)      0      13      0     13
+The Week                                          (train)      0      13      0     13
+Michelle Malkin                                   (train)      0       0     12     12
+Nieman Lab                                        (train)      0      12      0     12
+WIRED                                             (train)     12       0      0     12
+Quartz                                            (train)      0      11      0     11
+IVN                                               (train)      0      11      0     11
+Julian Zelizer                                    (train)     11       0      0     11
+The Thread                                        (train)      0      11      0     11
+San Francisco Chronicle                           (train)     10       0      0     10
+Ezra Klein                                        (train)     10       0      0     10
+Human Rights Watch                                (train)      0      10      0     10
+Wall Street Journal - Editorial                   (train)      0       0     10     10
+Boston Herald                                     (train)      0       0     10     10
+United Press International                        (train)      0      10      0     10
+CNSNews.com                                       (train)      0       0     10     10
+Center For American Progress                      (train)     10       0      0     10
+The Globe and Mail                                (train)      0       9      0      9
+Bustle                                            (train)      9       0      0      9
+The Root                                          (train)      9       0      0      9
+The Post Millennial                               (train)      0       0      9      9
+CNS News                                          (train)      0       0      9      9
+STAT                                              (train)      0       9      0      9
+Cato Institute (blog)                             (train)      0       0      9      9
+Charles Krauthammer                               (train)      0       0      9      9
+Jonah Goldberg                                    (train)      0       0      9      9
+Rand Paul                                         (train)      0       0      9      9
+Detroit News                                      (train)      0       9      0      9
+David Brooks                                      (train)      0       0      8      8
+Prager University                                 (train)      0       0      8      8
+NPR Editorial                                     (train)      8       0      0      8
+Michael Brendan Dougherty                         (train)      0       0      8      8
+Mashable                                          (train)      8       0      0      8
+Allysia Finley (Wall Street Journal)              (train)      0       0      8      8
+Heavy.com                                         (train)      0       7      0      7
+Detroit Free Press                                (train)      5       2      0      7
+CNN Fact Check                                    (train)      7       0      0      7
+CalMatters                                        (train)      0       7      0      7
+Ann Coulter                                       (train)      0       0      7      7
+Byron York                                        (train)      0       0      7      7
+Tucker Carlson                                    (train)      0       0      7      7
+American Thinker                                  (train)      0       0      7      7
+The Texas Tribune                                 (train)      6       0      0      6
+Brent Bozell                                      (train)      0       0      6      6
+Michael Goodwin                                   (train)      0       0      6      6
+Pacific Standard                                  (train)      6       0      0      6
+Elizabeth Warren                                  (train)      6       0      0      6
+Middle East Eye                                   (train)      6       0      0      6
+Esquire                                           (train)      6       0      0      6
+FactCheck.org                                     (train)      0       6      0      6
+Ryan Cooper                                       (train)      6       0      0      6
+Medium                                            (train)      0       5      0      5
+The Reporters Committee for Freedom of the Press  (train)      0       5      0      5
+The National Desk                                 (train)      0       0      5      5
+Current Affairs                                   (train)      5       0      0      5
+The Observer (New York)                           (train)      0       5      0      5
+Michael Barone                                    (train)      0       0      5      5
+Jezebel                                           (train)      5       0      0      5
+Ars Technica                                      (train)      0       5      0      5
+Portland Press Herald                             (train)      0       5      0      5
+City Journal                                      (train)      0       0      5      5
+Mitú                                              (train)      5       0      0      5
+PJ Media                                          (train)      0       0      5      5
+Tallahassee Democrat                              (train)      0       5      0      5
+Frank Bruni                                       (train)      5       0      0      5
+Christianity Today                                (train)      0       2      2      4
+Thomas Sowell                                     (train)      0       0      4      4
+AARP                                              (train)      0       4      0      4
+The Libertarian Republic                          (train)      0       0      4      4
+Center for Public Integrity                       (train)      4       0      0      4
+Committee to Protect Journalists                  (train)      0       4      0      4
+S.E. Cupp                                         (train)      0       0      4      4
+Gizmodo                                           (train)      1       3      0      4
+Pat Buchanan                                      (train)      0       0      4      4
+San Jose Mercury News                             (train)      4       0      0      4
+One America News Network (OAN)                    (train)      0       0      4      4
+John Gable, AllSides Founder                      (train)      0       1      3      4
+Milwaukee Journal Sentinel                        (train)      0       4      0      4
+Military Times                                    (train)      0       4      0      4
+AZ Central                                        (train)      0       4      0      4
+Jon Terbush                                       (train)      3       0      0      3
+Marc A. Thiessen                                  (train)      0       0      3      3
+The Jerusalem Post                                (train)      0       3      0      3
+Buzzfeed                                          (train)      3       0      0      3
+Check Your Fact                                   (train)      0       3      0      3
+The New York Sun                                  (train)      0       0      3      3
+Las Vegas Sun                                     (train)      3       0      0      3
+The Independent                                   (train)      1       2      0      3
+Catholic News Agency                              (train)      0       0      3      3
+Carol Costello                                    (train)      0       3      0      3
+The American Spectator                            (train)      0       0      3      3
+Splinter                                          (train)      3       0      0      3
+Scott Walker                                      (train)      0       0      3      3
+Tiana Lowe Doescher                               (train)      0       0      3      3
+Andrew Napolitano                                 (train)      0       0      3      3
+Anne Applebaum                                    (train)      0       3      0      3
+David Marcus                                      (train)      0       0      3      3
+David Leonhardt                                   (train)      3       0      0      3
+Independent Institute                             (train)      0       0      3      3
+Fox News Latino                                   (train)      0       0      3      3
+Foreign Affairs                                   (train)      0       3      0      3
+Oxford University Press                           (train)      0       3      0      3
+Fast Company                                      (train)      0       3      0      3
+ESPN                                              (train)      0       3      0      3
+Boston Herald Editorial                           (train)      0       0      3      3
+Michelle Goldberg                                 (train)      0       3      0      3
+Raw Story                                         (train)      3       0      0      3
+Hayes Brown                                       (train)      3       0      0      3
+Medical Daily                                     (train)      0       3      0      3
+Matt Welch                                        (train)      0       0      3      3
+The Intelligencer                                 (train)      0       3      0      3
+The Texan                                         (train)      0       0      2      2
+The Advocate                                      (train)      1       1      0      2
+The Columbus Dispatch                             (train)      0       2      0      2
+The Dispatch Fact Check                           (train)      0       2      0      2
+The Denver Post                                   (train)      0       2      0      2
+Jill Filipovic                                    (train)      2       0      0      2
+Jesse Jackson                                     (train)      2       0      0      2
+Atlanta Journal-Constitution                      (train)      2       0      0      2
+The Hollywood Reporter                            (train)      1       1      0      2
+Latino Rebels                                     (train)      2       0      0      2
+London School of Economics                        (train)      0       2      0      2
+MIT News                                          (train)      0       2      0      2
+KSL                                               (train)      0       1      1      2
+The Palm Beach Post                               (train)      0       2      0      2
+The Spectator World                               (train)      0       0      2      2
+The Tennessean                                    (train)      0       2      0      2
+The Massachusetts Daily Collegian                 (train)      0       2      0      2
+Billy Binion                                      (train)      0       2      0      2
+Bridgemi.com                                      (train)      0       2      0      2
+The Times of Israel                               (train)      0       2      0      2
+Sally Pipes                                       (train)      0       0      2      2
+Scott Jennings                                    (train)      0       0      2      2
+Scriberr Media - News                             (train)      0       2      0      2
+Smithsonian Magazine                              (train)      0       2      0      2
+Karol Markowicz                                   (train)      0       0      2      2
+DesMoines Register                                (train)      0       2      0      2
+Des Moines Register                               (train)      0       2      0      2
+TED                                               (train)      0       2      0      2
+Deadline.com                                      (train)      0       2      0      2
+Star Tribune                                      (train)      0       2      0      2
+Matt Taibbi                                       (train)      0       2      0      2
+Louisville Courier-Journal                        (train)      2       0      0      2
+Teen Vogue                                        (train)      2       0      0      2
+RAND Corporation                                  (train)      2       0      0      2
+Ralph Benko                                       (train)      0       0      2      2
+Rasmussen Reports                                 (train)      0       2      0      2
+Religion News Service                             (train)      0       2      0      2
+Right Side News                                   (train)      0       0      2      2
+Rex Huppke                                        (train)      2       0      0      2
+Erik Wemple                                       (train)      0       2      0      2
+Joan Blades                                       (train)      2       0      0      2
+Tangle                                            (train)      0       2      0      2
+Grover Norquist                                   (train)      0       0      2      2
+Taipei Times                                      (train)      0       2      0      2
+Conor Friedersdorf                                (train)      0       2      0      2
+NBC Today Show                                    (train)      2       0      0      2
+Nature.com                                        (train)      0       2      0      2
+Psypost                                           (train)      0       2      0      2
+Dana Milbank                                      (train)      0       2      0      2
+Dick Morris                                       (train)      0       0      2      2
+OilPrice.com                                      (train)      0       2      0      2
+Fiscal Times                                      (train)      0       0      2      2
+East Bay Times                                    (train)      0       2      0      2
+PolitiFact                                        (train)      2       0      0      2
+Nicholas Kristof                                  (train)      2       0      0      2
+Fabius Maximus                                    (train)      0       2      0      2
+Gail Collins                                      (train)      0       2      0      2
+GQ.com                                            (train)      2       0      0      2
+The Wrap                                          (train)      0       2      0      2
+American Enterprise Institute                     (train)      0       0      2      2
+Aaron Carroll                                     (train)      0       2      0      2
+WGN                                               (train)      0       2      0      2
+WFAE                                              (train)      0       2      0      2
+Wikipedia                                         (train)      0       2      0      2
+AL.com                                            (train)      0       2      0      2
+Walt Handelsman (cartoonist)                      (train)      1       0      0      1
+Watchdog.org                                      (train)      0       0      1      1
+Whitehouse.gov                                    (train)      0       0      1      1
+William Bennett                                   (train)      0       0      1      1
+WBFO                                              (train)      0       1      0      1
+American Greatness                                (train)      0       0      1      1
+Alyssa Milano                                     (train)      1       0      0      1
+Al Cardenas                                       (train)      0       0      1      1
+AZO Cleantech                                     (train)      0       1      0      1
+Austin American-Statesman                         (train)      1       0      0      1
+Americans for Tax Reform                          (train)      0       0      1      1
+Amy Klobuchar                                     (train)      1       0      0      1
+Andrew C. McCarthy                                (train)      0       0      1      1
+Andrew Sullivan                                   (train)      0       0      1      1
+ABC 7 New York                                    (train)      0       1      0      1
+Annafi Wahed                                      (train)      1       0      0      1
+Arkadi Gerney                                     (train)      1       0      0      1
+Arkansas Democrat-Gazette                         (train)      1       0      0      1
+Yellow Scene Magazine                             (train)      0       1      0      1
+Zionist Organization of America                   (train)      0       1      0      1
+Thomas Frank                                      (train)      1       0      0      1
+Peter Thiel                                       (train)      0       0      1      1
+Polish Times                                      (train)      0       1      0      1
+New York Times Editorial Board                    (train)      1       0      0      1
+News Wise                                         (train)      0       1      0      1
+NewsOne                                           (train)      1       0      0      1
+Newsmax (Opinion)                                 (train)      0       0      1      1
+Glamour                                           (train)      0       1      0      1
+Glenn Greenwald                                   (train)      0       1      0      1
+Erraticus                                         (train)      0       1      0      1
+FXStreet                                          (train)      0       1      0      1
+Family Research Council                           (train)      0       0      1      1
+OpenSecrets.org                                   (train)      0       1      0      1
+PRI (Public Radio International)                  (train)      0       1      0      1
+Pacific Research Institute                        (train)      0       0      1      1
+Paul Ryan                                         (train)      0       0      1      1
+Peacock Panache                                   (train)      1       0      0      1
+Peggy Noonan                                      (train)      0       0      1      1
+Drudge Report                                     (train)      0       0      1      1
+Duke Chronicle                                    (train)      0       1      0      1
+Ed Yong                                           (train)      0       1      0      1
+El Paso Times                                     (train)      0       1      0      1
+Multiple Writers - Left                           (train)      1       0      0      1
+Federation of American Scientists                 (train)      1       0      0      1
+Noah Rothman                                      (train)      0       0      1      1
+Odyssey Online                                    (train)      0       1      0      1
+NMPolitics.net                                    (train)      0       1      0      1
+National Interest                                 (train)      0       1      0      1
+Neil J. Young                                     (train)      1       0      0      1
+Indiana Daily Student                             (train)      0       1      0      1
+Freakonomics                                      (train)      0       1      0      1
+Free Beacon Fact Check                            (train)      0       0      1      1
+Penn Live                                         (train)      0       1      0      1
+Daily Targum                                      (train)      1       0      0      1
+Daniel DePetris                                   (train)      0       1      0      1
+David Holmes                                      (train)      1       0      0      1
+David Petraeus                                    (train)      0       1      0      1
+Rutgers Today                                     (train)      0       1      0      1
+Psych Central                                     (train)      0       1      0      1
+Quinnipiac University                             (train)      0       1      0      1
+Rahm Emanuel                                      (train)      1       0      0      1
+Socialist Alternative                             (train)      1       0      0      1
+Socialist Project/The Bullet                      (train)      1       0      0      1
+Reason Foundation                                 (train)      0       0      1      1
+RedCross.org                                      (train)      0       1      0      1
+Rev. Jesse Jackson Sr.                            (train)      1       0      0      1
+Rich Zeoli                                        (train)      0       0      1      1
+Richard A. Lowry                                  (train)      0       0      1      1
+Eli Parser                                        (train)      1       0      0      1
+Elizabeth Bruenig                                 (train)      1       0      0      1
+Emily Oster                                       (train)      0       1      0      1
+Daily Northwestern                                (train)      1       0      0      1
+International Institute for Strategic Studies     (train)      0       1      0      1
+Michael Graham                                    (train)      0       0      1      1
+Michael Kinsley                                   (train)      1       0      0      1
+MichelleMalkin.com                                (train)      0       0      1      1
+Misinformation Review                             (train)      0       1      0      1
+John Nichols                                      (train)      1       0      0      1
+Global Research                                   (train)      0       1      0      1
+Gothamist                                         (train)      0       1      0      1
+Henry A. Brechter                                 (train)      0       1      0      1
+Herald Democrat                                   (train)      1       0      0      1
+Hillary Clinton                                   (train)      1       0      0      1
+Honolulu Civil Beat                               (train)      0       1      0      1
+Daily Sabah                                       (train)      0       1      0      1
+Conservative HQ                                   (train)      0       0      1      1
+Cosmopolitan                                      (train)      0       1      0      1
+Counter Currents                                  (train)      1       0      0      1
+Ted Rall (cartoonist)                             (train)      1       0      0      1
+SFGate                                            (train)      1       0      0      1
+San Gabriel Valley Tribune                        (train)      0       1      0      1
+Scriberr Media - Opinion/Editorial                (train)      0       0      1      1
+Scripps News                                      (train)      0       1      0      1
+Star News                                         (train)      0       1      0      1
+Staten Island Advance                             (train)      0       1      0      1
+Steven Petrow                                     (train)      0       1      0      1
+Student Press Law Center                          (train)      0       1      0      1
+Sunlight Foundation                               (train)      0       1      0      1
+Dennis Prager                                     (train)      0       0      1      1
+Civil.Ge                                          (train)      0       1      0      1
+Cleveland Plain Dealer                            (train)      0       1      0      1
+Commentary Magazine                               (train)      0       0      1      1
+Commonwealth Journal                              (train)      0       1      0      1
+NASA                                              (train)      0       1      0      1
+NBC (Web News)                                    (train)      1       0      0      1
+NBC 5 Chicago                                     (train)      0       1      0      1
+Matt Towery                                       (train)      0       0      1      1
+MediaPost                                         (train)      0       1      0      1
+Kathleen Parker                                   (train)      0       0      1      1
+Ken Burns                                         (train)      0       1      0      1
+Kitsap Sun                                        (train)      0       1      0      1
+LGBTQ Nation                                      (train)      1       0      0      1
+Indy Online                                       (train)      0       1      0      1
+Inside Philanthropy                               (train)      0       1      0      1
+Concord Monitor                                   (train)      0       1      0      1
+The American Conservative                         (train)      0       0      1      1
+The American Prospect                             (train)      1       0      0      1
+The Californian                                   (train)      0       1      0      1
+The Catalyst                                      (train)      0       0      1      1
+The Colorado Sun                                  (train)      1       0      0      1
+The Commercial Appeal                             (train)      1       0      0      1
+The Conversation                                  (train)      0       1      0      1
+The Courier-Journal                               (train)      1       0      0      1
+The Daily Texan                                   (train)      0       1      0      1
+Socialist Worker                                  (train)      0       1      0      1
+The Diplomat                                      (train)      0       1      0      1
+The Georgia Sun                                   (train)      0       1      0      1
+DAG Blog                                          (train)      0       1      0      1
+Daily Camera                                      (train)      0       1      0      1
+Daily Cardinal                                    (train)      0       1      0      1
+CU Independent                                    (train)      0       1      0      1
+Carnegie Endowment for International Peace        (train)      0       1      0      1
+Carrie Lukas                                      (train)      0       0      1      1
+Cato Institute                                    (train)      0       0      1      1
+The Hoya                                          (train)      0       1      0      1
+James Bovard                                      (train)      0       0      1      1
+Jerome Adams                                      (train)      0       1      0      1
+Jim Obergefell                                    (train)      1       0      0      1
+Metrocosm                                         (train)      0       1      0      1
+Mexico News Daily                                 (train)      0       1      0      1
+Michael Arceneaux                                 (train)      1       0      0      1
+Lawrence Journal World                            (train)      0       1      0      1
+Lisa Gable                                        (train)      0       0      1      1
+Living Room Conversations                         (train)      0       1      0      1
+Los Angeles Daily News                            (train)      0       1      0      1
+The Justice                                       (train)      1       0      0      1
+The Korea Herald                                  (train)      0       1      0      1
+Chris Ruddy                                       (train)      0       0      1      1
+Christopher Buskirk                               (train)      0       0      1      1
+Business Wire                                     (train)      0       1      0      1
+CBC News                                          (train)      0       1      0      1
+CBS SFBayArea                                     (train)      0       1      0      1
+The Oklahoman                                     (train)      0       1      0      1
+The Oregonian                                     (train)      0       1      0      1
+The Outline                                       (train)      0       1      0      1
+The Denver Gazette                                (train)      0       1      0      1
+Brad Parscale                                     (train)      0       0      1      1
+Toronto Star                                      (train)      0       1      0      1
+TruthOut                                          (train)      1       0      0      1
+Tucson Weekly                                     (train)      0       1      0      1
+The State Press                                   (train)      0       1      0      1
+The Sun                                           (train)      0       1      0      1
+The Telegraph - UK                                (train)      0       0      1      1
+The Times                                         (train)      0       1      0      1
+The Times Higher Education                        (train)      0       1      0      1
+The Irish Times                                   (train)      0       1      0      1
+ACLU                                              (train)      1       0      0      1
+Luke Winkie                                       (train)      1       0      0      1
+Manhattan Institute                               (train)      0       0      1      1
+Marijuana Moment                                  (train)      1       0      0      1
+Jonathan Chait                                    (train)      1       0      0      1
+Jonathan Haidt                                    (train)      0       1      0      1
+KALW.org                                          (train)      0       1      0      1
+KQED                                              (train)      0       1      0      1
+KUTV                                              (train)      0       1      0      1
+Kaiser Family Foundation                          (train)      0       1      0      1
+Kalamazoo Gazette                                 (train)      0       1      0      1
+Association for Psychological Science             (train)      0       1      0      1
+The Japan Times                                   (train)      0       1      0      1
+theunion.com                                      (train)      0       1      0      1
+Tom Cole                                          (train)      0       0      1      1
+Brock Press                                       (train)      0       1      0      1
+Brown University                                  (train)      0       1      0      1
+Bucks County Courier Times                        (train)      0       1      0      1
+University of Bath                                (train)      0       1      0      1
+University of Wyoming                             (train)      0       1      0      1
+Vogue                                             (train)      1       0      0      1
+Voice of America                                  (train)      0       1      0      1
+Barstool Sports - Blog                            (train)      0       1      0      1
+Bipartisan Report                                 (train)      0       1      0      1
+Block Club Chicago                                (train)      1       0      0      1
+Blue Virginia                                     (train)      1       0      0      1
+Tim Kaine                                         (train)      1       0      0      1
+
+
+================================================================================
+EVAL SOURCES (120 raw sources)
+================================================================================
+Source                                               Left  Centre  Right  Total
+-------------------------------------------------- ------ ------- ------ ------
+Townhall                                                0       0   1861   1861
+Christian Science Monitor                               0    1489      0   1489
+Associated Press                                      558     391      0    949
+Breitbart News                                          0       0    789    789
+Salon                                                 777       0      0    777
+Guest Writer - Right                                    0       0    497    497
+ABC News                                              356       0      0    356
+The Atlantic                                          227       0      0    227
+Guest Writer - Left                                   206       0      0    206
+Daily Kos                                             181       0      0    181
+Guest Writer                                            0      99      0     99
+Time Magazine                                          84       0      0     84
+Chicago Sun-Times                                      83       0      0     83
+HotAir                                                  0       0     76     76
+MSNBC                                                  75       0      0     75
+RealClearPolitics                                       0      49      0     49
+NewsBusters                                             0       0     44     44
+The Nation                                             39       0      0     39
+The Boston Globe                                       38       0      0     38
+CNET                                                    0      22      0     22
+InfoWars                                                0       0     21     21
+Brookings Institution                                   0      18      0     18
+Snopes                                                  0      18      0     18
+BET                                                    17       0      0     17
+Gallup                                                  0      16      0     16
+ABC News (Online)                                      15       0      0     15
+Guest Writer - Center                                   0      14      0     14
+Defense One                                             0      13      0     13
+The Kyiv Independent                                    0      12      0     12
+Juan Williams                                          12       0      0     12
+The Heritage Foundation                                 0       0     10     10
+The Western Journal                                     0       0      9      9
+Daily Chela                                             8       0      0      8
+AP Fact Check                                           8       0      0      8
+PinkNews                                                6       0      0      6
+National Journal                                        0       6      0      6
+Breitbart Fact Check                                    0       0      6      6
+Ben Stein                                               0       0      6      6
+Above The Law                                           6       0      0      6
+Jeff Jacoby                                             0       0      6      6
+Education Week                                          0       5      0      5
+Barack Obama                                            4       0      0      4
+Black Enterprise                                        4       0      0      4
+WND.com                                                 0       0      4      4
+Orange County Register                                  0       0      4      4
+Bret Stephens                                           0       0      3      3
+Investor's Business Daily                               0       0      3      3
+AlterNet                                                3       0      0      3
+Tampa Bay Times                                         0       3      0      3
+Red State                                               0       0      3      3
+WBUR                                                    0       3      0      3
+Steve Benen                                             3       0      0      3
+Harvard Business School                                 3       0      0      3
+City Lab                                                0       2      0      2
+AllSides                                                0       2      0      2
+Charles Blow                                            2       0      0      2
+ZeroHedge                                               0       0      2      2
+Zeeshan Aleem                                           2       0      0      2
+Trains.com                                              0       2      0      2
+USAPP                                                   0       2      0      2
+Florida Politics                                        0       2      0      2
+GLAAD                                                   2       0      0      2
+The Resurgent                                           0       0      2      2
+The Daily Wildcat                                       0       2      0      2
+The American Mind                                       0       0      2      2
+Patriot Post                                            0       2      0      2
+RedState                                                0       0      2      2
+RealClearPolitics (Aggregator)                          0       2      0      2
+Mic                                                     0       2      0      2
+Mitt Romney                                             0       0      2      2
+Ross Douthat                                            0       0      2      2
+Rem Reider                                              0       2      0      2
+Bonnie Kristian                                         0       2      0      2
+Donald Trump                                            0       0      2      2
+Baltimore Sun                                           0       1      0      1
+Bipartisan Policy Center                                0       1      0      1
+Cook Report                                             0       1      0      1
+David Williamson                                        0       1      0      1
+FAIR                                                    1       0      0      1
+FEE.org                                                 0       0      1      1
+Chalkbeat                                               0       1      0      1
+CivilPolitics.org                                       0       1      0      1
+Center - Major Media Sources                            0       1      0      1
+Bay Area Bandwith                                       0       1      0      1
+Boston Review                                           1       0      0      1
+Bring Me The News                                       0       1      0      1
+Brown Girl Magazine                                     1       0      0      1
+CalWatchdog                                             0       1      0      1
+Jeff Spross                                             1       0      0      1
+JSTOR Daily                                             0       1      0      1
+Houston Chronicle                                       0       1      0      1
+Intellectual Conservative                               0       0      1      1
+PACE                                                    0       1      0      1
+NewsNation                                              0       1      0      1
+Jonathan Miller                                         1       0      0      1
+Joe Scarborough                                         0       0      1      1
+Longmont Times-Call                                     1       0      0      1
+Live Action News                                        0       0      1      1
+Kellogg Insight                                         0       1      0      1
+Joseph Curl                                             0       0      1      1
+John Boehner                                            0       0      1      1
+Mercatus Center                                         0       0      1      1
+Mitch McConnell                                         0       0      1      1
+New York Daily News                                     1       0      0      1
+Sierra Sun                                              0       1      0      1
+Robert F. Kennedy Jr.                                   0       1      0      1
+Piers Morgan                                            1       0      0      1
+Project Syndicate                                       0       1      0      1
+Tom Nichols                                             0       0      1      1
+Thomas Frey                                             0       1      0      1
+The Seattle Times                                       0       1      0      1
+Tom Rogan                                               0       1      0      1
+Voz Media                                               0       0      1      1
+Volante                                                 0       1      0      1
+University of Delaware Review                           0       1      0      1
+WTOP                                                    0       1      0      1
+Wausau Daily Herald                                     0       1      0      1
+Washington Monthly                                      1       0      0      1
+Western Journal                                         0       1      0      1
+Webster Journal                                         0       1      0      1
