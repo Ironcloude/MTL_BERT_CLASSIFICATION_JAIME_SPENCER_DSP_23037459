@@ -1,5 +1,6 @@
-# Digital Systems Project: Multi-task BERT-based Classification of Political Alignment in Online Media 
-<b>Jaime Spencer (23037459)</b>
+# Multi-task BERT-based Classification of Political Alignment in Online Media 
+
+### Report can be found [here](https://github.com/user-attachments/files/29680806/JAIME_SPENCER_23037459_FINAL.pdf).
 
 # Outline
 - `src/train.py` is the primary training file, designed for executing bulk experiments in sequence as defined in `configs/experiments`, which extends the base architecture configurations in `configs/defaults`.
